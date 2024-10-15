@@ -1,0 +1,45 @@
+#
+#  pyproject.toml
+#
+#  Created: Oct 15, 2024
+#  Updated:
+#
+#  Author:  Michael E. Tryby
+#           US EPA - ORD/CESER
+#
+
+
+[build-system]
+requires = [
+    "build",
+    "setuptools",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "epanet-parse"
+description = "File parsing toolkit for EPANET"
+dependencies = [
+    "lark",
+]
+dynamic = ["version"]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src/"]
+include = [
+    "epanet.parse",
+    "epanet.parse.grammars",
+]
+
+
+[tool.setuptools.package-data]
+"*" = ["*.lark"]
+
+
+[tool.setuptools.dynamic]
+version = {attr = "epanet.parse.__version__"}

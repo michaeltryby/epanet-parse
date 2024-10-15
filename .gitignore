@@ -1,0 +1,9 @@
+
+
+# Ignore build and test related directories
+
+*.egg-info/
+dist/
+
+__pycache__/
+.pytest_cache/

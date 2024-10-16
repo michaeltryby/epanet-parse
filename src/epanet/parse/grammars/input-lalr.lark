@@ -45,7 +45,7 @@ times           :  word (_SP word)? _SP time _EOR                     -> record
 
 report          :  word _SP (_number | word) _EOR                     -> record
 
-options         :  word _SP (keyword | name | float | name _SP word) _EOR   s-> record
+options         :  word _SP (keyword | name | float | name _SP word) _EOR  -> record
 
 end             :  _EOR                                               -> record
 
@@ -56,33 +56,33 @@ section{arg1, arg2}:  "[" arg1 "]" _EOR arg2*
 
 _sections       :  section{/TITLE/, title}
                 |  section{/JUNCTIONS/, junctions}
-                |  section{/RESERVOIRS, reservoirs}
-                |  section{/TANKS, tanks}
-                |  section{/PIPES, pipes}
-                |  section{/PUMPS, pumps}
-//                |  section{/VALVES, valves}
-//                |  section{/CONTROLS, controls}
-//                |  section{/RULES, rules}
-//                |  section{/DEMANDS, demands}
-//                |  section{/SOURCES, sources}
-//                |  section{/EMITTERS, emitters}
-                |  section{/PATTERNS, patterns}
-                |  section{/CURVES, curves}
-                |  section{/QUALITY, quality}
-//                |  section{/STATUS, status}
-//                |  section{/ROUGHNESS, roughness}
-//                |  section{/ENERGY, energy}
-                |  section{/REACTIONS, reactions}
-//                |  section{/MIXING, mixing}
-                |  section{/REPORT, report}
-                |  section{/TIMES, times}
-                |  section{/OPTIONS, options}
-//                |  section{/COORDS, coords}
-//                |  section{/VERTICES, vertices}
-//                |  section{/LABELS, labels}
-//                |  section{/BACKDROP, backdrop}
-//                |  section{/TAGS, tags}
-                |  section{/END, end}
+                |  section{/RESERVOIRS/, reservoirs}
+                |  section{/TANKS/, tanks}
+                |  section{/PIPES/, pipes}
+                |  section{/PUMPS/, pumps}
+//                |  section{/VALVES/, valves}
+//                |  section{/CONTROLS/, controls}
+//                |  section{/RULES/, rules}
+//                |  section{/DEMANDS/, demands}
+//                |  section{/SOURCES/, sources}
+//                |  section{/EMITTERS/, emitters}
+                |  section{/PATTERNS/, patterns}
+                |  section{/CURVES/, curves}
+                |  section{/QUALITY/, quality}
+//                |  section{/STATUS/, status}
+//                |  section{/ROUGHNESS/, roughness}
+//                |  section{/ENERGY/, energy}
+                |  section{/REACTIONS/, reactions}
+//                |  section{/MIXING/, mixing}
+                |  section{/REPORT/, report}
+                |  section{/TIMES/, times}
+                |  section{/OPTIONS/, options}
+//                |  section{/COORDS/, coords}
+//                |  section{/VERTICES/, vertices}
+//                |  section{/LABELS/, labels}
+//                |  section{/BACKDROP/, backdrop}
+//                |  section{/TAGS/, tags}
+                |  section{/END/, end}
 
 
 
@@ -90,9 +90,9 @@ _COMMENT        :  /;[^\n]*/
 
 _EOR            :  (_SP? _NL|_SP? _COMMENT _NL)
 
-keyword         :  /[\/A-Z_-]+/
+keyword         :  /[A-Z-]+/
 
-word            :  /[a-zA-Z]+/
+word            :  /[\/a-zA-Z]+/
 
 name            :  /[a-zA-Z0-9-@]+/
 
@@ -100,9 +100,11 @@ date            :  /\d{1,2}\/\d{1,2}(\/\d{4})?/
 
 time            :  /\d{1,2}:\d{2}(:\d{2})?/
 
-float           :  /(\d+\.\d*|\.\d+)/
+float           :  /-?(\d+\.\d*|\.\d+)/
 
-integer         :  /\d+/
+integer         :  /-?\d+/
+
+_number         :  integer | float
 
 operator        :  /=|<>|<=?|>=?/
 

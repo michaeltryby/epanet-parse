@@ -26,7 +26,7 @@ Convert SWMM input into a parse tree.
 from lark import Lark
 
 l = Lark.open_from_package(
-"swmm.parse", "input-earley.lark", ("grammars",), parser="earley"
+"epanet.parse", "input-earley.lark", ("grammars",), parser="earley"
 )
 
 input = """

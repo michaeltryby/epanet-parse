@@ -20,7 +20,7 @@ Installs requirements and runs tests
 ```
 ## Usage
 
-Convert SWMM input into a parse tree.
+Convert EPANET input into a parse tree.
 
 ```
 from lark import Lark

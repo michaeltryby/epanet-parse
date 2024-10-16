@@ -1,6 +1,6 @@
 # epanet-parse
 
-A file parsing toolkit for EPANET
+File parsing toolkit for EPANET
 
 ## Build
 
